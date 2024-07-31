@@ -16,9 +16,9 @@ app.MapPost("/file_process", async (HttpRequest req) =>
 
         HttpResponseMessage resp = await HTTP.GetAsync(body);
 
-        if (resp.Content.Headers.ContentType.MediaType == "application/json")
+        if (resp.Content.Headers.ContentType?.MediaType == "application/json")
         {
-            var json = await resp.Content.ReadAsStringAsync();
+            string json = await resp.Content.ReadAsStringAsync();
             return json;
         }
 
